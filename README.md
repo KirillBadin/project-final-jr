@@ -12,7 +12,15 @@
   username: jira
   password: JiraRush
 ```
-
+## Запуск БД
+### Prod
+```bash 
+docker run -p 5432:5432 --name postgres-db -e POSTGRES_USER=jira -e POSTGRES_PASSWORD=JiraRush -e POSTGRES_DB=jira -e PGDATA=/var/lib/postgresql/data/pgdata -v ./pgdata:/var/lib/postgresql/data -d postgres
+```
+### test
+```bash 
+docker run -p 5433:5432 --name postgres-db-test -e POSTGRES_USER=jira -e POSTGRES_PASSWORD=JiraRush -e POSTGRES_DB=jira-test -e PGDATA=/var/lib/postgresql/data/pgdata -v ./pgdata-test:/var/lib/postgresql/data -d postgres
+```
 - Есть 2 общие таблицы, на которых не fk
     - _Reference_ - справочник. Связь делаем по _code_ (по id нельзя, тк id привязано к окружению-конкретной базе)
     - _UserBelong_ - привязка юзеров с типом (owner, lead, ...) к объекту (таска, проект, спринт, ...). FK вручную будем
@@ -27,4 +35,4 @@
 - https://habr.com/ru/articles/259055/
 
 Список выполненных задач:
-...
+1. Удалить социальные сети: vk, yandex. 18.06.2026
