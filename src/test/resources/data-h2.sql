@@ -1,32 +1,17 @@
 ---------  users ----------------------
-delete
-from USER_ROLE;
-delete
-from CONTACT;
-delete
-from PROFILE;
-
-delete
-from ACTIVITY;
-alter
-sequence ACTIVITY_ID_SEQ restart with 1;
-delete
-from TASK;
-alter
-sequence TASK_ID_SEQ restart with 1;
-delete
-from SPRINT;
-alter
-sequence SPRINT_ID_SEQ restart with 1;
-delete
-from PROJECT;
-alter
-sequence PROJECT_ID_SEQ restart with 1;
-
-delete
-from USERS;
-alter
-sequence USERS_ID_SEQ restart with 1;
+delete from USER_ROLE;
+delete from CONTACT;
+delete from PROFILE;
+delete from ACTIVITY;
+ALTER SEQUENCE ACTIVITY_ID_SEQ RESTART WITH 1;
+delete from TASK;
+ALTER SEQUENCE TASK_ID_SEQ RESTART WITH 1;
+delete from SPRINT;
+ALTER SEQUENCE SPRINT_ID_SEQ RESTART WITH 1;
+delete from PROJECT;
+ALTER SEQUENCE PROJECT_ID_SEQ RESTART WITH 1;
+delete from USERS;
+ALTER SEQUENCE USERS_ID_SEQ RESTART WITH 1;
 
 insert into USERS (EMAIL, PASSWORD, FIRST_NAME, LAST_NAME, DISPLAY_NAME)
 values ('user@gmail.com', '{noop}password', 'userFirstName', 'userLastName', 'userDisplayName'),
