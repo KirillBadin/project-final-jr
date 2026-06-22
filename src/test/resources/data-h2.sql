@@ -3,15 +3,10 @@ delete from USER_ROLE;
 delete from CONTACT;
 delete from PROFILE;
 delete from ACTIVITY;
-ALTER SEQUENCE ACTIVITY_ID_SEQ RESTART WITH 1;
 delete from TASK;
-ALTER SEQUENCE TASK_ID_SEQ RESTART WITH 1;
 delete from SPRINT;
-ALTER SEQUENCE SPRINT_ID_SEQ RESTART WITH 1;
 delete from PROJECT;
-ALTER SEQUENCE PROJECT_ID_SEQ RESTART WITH 1;
 delete from USERS;
-ALTER SEQUENCE USERS_ID_SEQ RESTART WITH 1;
 
 insert into USERS (EMAIL, PASSWORD, FIRST_NAME, LAST_NAME, DISPLAY_NAME)
 values ('user@gmail.com', '{noop}password', 'userFirstName', 'userLastName', 'userDisplayName'),
@@ -23,7 +18,7 @@ values ('user@gmail.com', '{noop}password', 'userFirstName', 'userLastName', 'us
 -- 1 ADMIN
 -- 2 MANAGER
 
-insert into USER_ROLE (USER_ID, ROLE)
+insert into USER_ROLE (USER_ID, "role")
 values (1, 0),
        (2, 0),
        (2, 1),
@@ -33,7 +28,7 @@ insert into PROFILE (ID, LAST_FAILED_LOGIN, LAST_LOGIN, MAIL_NOTIFICATIONS)
 values (1, null, null, 49),
        (2, null, null, 14);
 
-insert into CONTACT (ID, CODE, VALUE)
+insert into CONTACT (ID, CODE, "value")
 values (1, 'skype', 'userSkype'),
        (1, 'mobile', '+01234567890'),
        (1, 'website', 'user.com'),
@@ -76,7 +71,6 @@ insert into USER_BELONG (OBJECT_ID, OBJECT_TYPE, USER_ID, USER_TYPE_CODE, STARTP
 values (1, 2, 2, 'task_developer', '2023-06-14 08:35:10', '2023-06-14 08:55:00'),
        (1, 2, 2, 'task_reviewer', '2023-06-14 09:35:10', null),
        (1, 2, 1, 'task_developer', '2023-06-12 11:40:00', '2023-06-12 12:35:00'),
-       (1, 2, 1, 'task_developer', '2023-06-13 12:35:00', null),
        (1, 2, 1, 'task_tester', '2023-06-14 15:20:00', null),
        (2, 2, 2, 'task_developer', '2023-06-08 07:10:00', null),
        (2, 2, 1, 'task_developer', '2023-06-09 14:48:00', null),
