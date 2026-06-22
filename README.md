@@ -39,3 +39,4 @@ docker run -p 5433:5432 --name postgres-db-test -e POSTGRES_USER=jira -e POSTGRE
 2. Вынести чувствительную информацию в отдельный проперти файл. 21.06.2026
 3. Переделать тесты так, чтоб во время тестов использовалась in memory БД (H2), а не PostgreSQL. 21.06.2026
 4. Написать тесты для всех публичных методов контроллера ProfileRestController. 22.06.2026
+5. Сделать рефакторинг метода com.javarush.jira.bugtracking.attachment.FileUtil#upload. 22.06.2026
