@@ -40,3 +40,4 @@ docker run -p 5433:5432 --name postgres-db-test -e POSTGRES_USER=jira -e POSTGRE
 3. Переделать тесты так, чтоб во время тестов использовалась in memory БД (H2), а не PostgreSQL. 21.06.2026
 4. Написать тесты для всех публичных методов контроллера ProfileRestController. 22.06.2026
 5. Сделать рефакторинг метода com.javarush.jira.bugtracking.attachment.FileUtil#upload. 22.06.2026
+6. Добавить новый функционал: добавления тегов к задаче (REST API + реализация на сервисе)
