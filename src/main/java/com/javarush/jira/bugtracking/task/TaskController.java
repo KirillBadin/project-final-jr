@@ -21,6 +21,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -163,5 +164,23 @@ public class TaskController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void addTags(@PathVariable long id, @Valid @RequestBody Set<@Size(min=2, max=32) String> tags) {
         taskService.addTags(id, tags);
+    }
+
+    @GetMapping("/{id}/work-time")
+    public ResponseEntity<Long> getWorkTime(@PathVariable long id) {
+        Duration duration = taskService.getWorkDuration(id);
+        if (duration == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(duration.toMinutes());
+    }
+
+    @GetMapping("/{id}/test-time")
+    public ResponseEntity<Long> getTestTime(@PathVariable long id) {
+        Duration duration = taskService.getTestDuration(id);
+        if (duration == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(duration.toMinutes());
     }
 }
